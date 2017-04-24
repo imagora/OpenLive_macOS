@@ -3,3 +3,4 @@
 //
 
 #import <AgoraRtcEngineKit/AgoraRtcEngineKit.h>
+#import "DynamicKey.h"

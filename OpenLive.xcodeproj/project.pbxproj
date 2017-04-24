@@ -28,6 +28,10 @@
 		0755898D1D796FFC004B0DEA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0755898B1D796FA1004B0DEA /* libc++.tbd */; };
 		075589A61D7D44C8004B0DEA /* ReplacementSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075589A51D7D44C8004B0DEA /* ReplacementSegue.swift */; };
 		07F5319D1E289ED4009BFE58 /* OpenLiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5319C1E289ED4009BFE58 /* OpenLiveUITests.swift */; };
+		2E8193291E27943C00BDD94F /* DynamicKey.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E8193281E27943C00BDD94F /* DynamicKey.mm */; };
+		2E81932D1E28D17700BDD94F /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E81932C1E28D17700BDD94F /* libcrypto.a */; };
+		2ED34B561EA474400063092E /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE247141E127C6400BEC379 /* AgoraRtcEngineKit.framework */; };
+		2ED34B581EA475240063092E /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED34B571EA475240063092E /* libresolv.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,13 @@
 		07F5319A1E289ED4009BFE58 /* OpenLiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenLiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F5319C1E289ED4009BFE58 /* OpenLiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLiveUITests.swift; sourceTree = "<group>"; };
 		07F5319E1E289ED4009BFE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E8193271E27943C00BDD94F /* DynamicKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicKey.h; sourceTree = "<group>"; };
+		2E8193281E27943C00BDD94F /* DynamicKey.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DynamicKey.mm; sourceTree = "<group>"; };
+		2E81932A1E279A3100BDD94F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../../../usr/local/Cellar/openssl/1.0.2j/lib/libcrypto.a; sourceTree = "<group>"; };
+		2E81932C1E28D17700BDD94F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenLive/libs/libcrypto.a; sourceTree = "<group>"; };
+		2ED34B571EA475240063092E /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		2EE247121E127BD600BEC379 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = ../../Downloads/Agora_Native_SDK_for_Mac_FULL/libs/AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
+		2EE247141E127C6400BEC379 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = OpenLive/libs/AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				073177F31D8006720062A68C /* AgoraRtcEngineKit.framework in Frameworks */,
+				2ED34B581EA475240063092E /* libresolv.tbd in Frameworks */,
+				2ED34B561EA474400063092E /* AgoraRtcEngineKit.framework in Frameworks */,
+				2E81932D1E28D17700BDD94F /* libcrypto.a in Frameworks */,
 				0755898D1D796FFC004B0DEA /* libc++.tbd in Frameworks */,
 				0755898A1D796F1B004B0DEA /* CoreAudio.framework in Frameworks */,
 				075589881D796F15004B0DEA /* CoreWLAN.framework in Frameworks */,
@@ -102,6 +115,7 @@
 				071CE22F1D79362D00B82401 /* OpenLive */,
 				07F5319B1E289ED4009BFE58 /* OpenLiveUITests */,
 				071CE22E1D79362D00B82401 /* Products */,
+				2EE247111E127BD600BEC379 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +147,8 @@
 				071CE2341D79362D00B82401 /* Assets.xcassets */,
 				071CE2391D79362D00B82401 /* Info.plist */,
 				0755895F1D794F9F004B0DEA /* OpenLive-Bridging-Header.h */,
+				2E8193271E27943C00BDD94F /* DynamicKey.h */,
+				2E8193281E27943C00BDD94F /* DynamicKey.mm */,
 			);
 			path = OpenLive;
 			sourceTree = "<group>";
@@ -168,6 +184,18 @@
 				07F5319E1E289ED4009BFE58 /* Info.plist */,
 			);
 			path = OpenLiveUITests;
+			sourceTree = "<group>";
+		};
+		2EE247111E127BD600BEC379 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2ED34B571EA475240063092E /* libresolv.tbd */,
+				2E81932C1E28D17700BDD94F /* libcrypto.a */,
+				2E81932A1E279A3100BDD94F /* libcrypto.a */,
+				2EE247141E127C6400BEC379 /* AgoraRtcEngineKit.framework */,
+				2EE247121E127BD600BEC379 /* AgoraRtcEngineKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +305,7 @@
 				075589781D7967CB004B0DEA /* VideoSession.swift in Sources */,
 				075589691D79531A004B0DEA /* MainViewController.swift in Sources */,
 				0755896A1D79531A004B0DEA /* MainWindowController.swift in Sources */,
+				2E8193291E27943C00BDD94F /* DynamicKey.mm in Sources */,
 				075589A61D7D44C8004B0DEA /* ReplacementSegue.swift in Sources */,
 				0755896B1D79531A004B0DEA /* LiveRoomViewController.swift in Sources */,
 				071CE2311D79362D00B82401 /* AppDelegate.swift in Sources */,
@@ -413,8 +442,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenLive/libs",
 				);
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/openssl/1.0.2j/include/;
 				INFOPLIST_FILE = OpenLive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/openssl/1.0.2j/lib/,
+					/usr/local/Cellar/openssl/1.0.2j/lib,
+					"$(PROJECT_DIR)/OpenLive/libs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.agora.OpenLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OpenLive/OpenLive-Bridging-Header.h";
@@ -433,8 +468,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenLive/libs",
 				);
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/openssl/1.0.2j/include/;
 				INFOPLIST_FILE = OpenLive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/openssl/1.0.2j/lib/,
+					/usr/local/Cellar/openssl/1.0.2j/lib,
+					"$(PROJECT_DIR)/OpenLive/libs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.agora.OpenLive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OpenLive/OpenLive-Bridging-Header.h";

@@ -22,6 +22,9 @@ class LiveRoomViewController: NSViewController {
     
     //MARK: public var
     var roomName: String!
+    var appId: String!
+    var appCertificate: String!
+    var joinInfo: String!
     var clientRole = AgoraRtcClientRole.clientRole_Audience {
         didSet {
             updateButtonsVisiablity()
@@ -65,7 +68,7 @@ class LiveRoomViewController: NSViewController {
         roomNameLabel.stringValue = roomName
         updateButtonsVisiablity()
         
-        loadAgoraKit()
+        loadAgoraKit(appId: appId, appCertificate: appCertificate)
     }
     
     override func viewDidAppear() {
@@ -194,8 +197,13 @@ private extension LiveRoomViewController {
 
 //MARK: - Agora SDK
 private extension LiveRoomViewController {
-    func loadAgoraKit() {
-        rtcEngine = AgoraRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: self)
+    func loadAgoraKit(appId: String, appCertificate: String) {
+        let id = appId.isEmpty ? KeyCenter.AppId : appId
+        var key: String? = nil
+        if !appId.isEmpty && !appCertificate.isEmpty {
+            key = DynamicKey.generateMediaChannelKey(appId, appCertificate: appCertificate, channelName: roomName, unixTs: UInt32(NSDate().timeIntervalSince1970), randomInt: arc4random(), uid: 0, expiredTs: 0)
+        }
+        rtcEngine = AgoraRtcEngineKit.sharedEngine(withAppId: id, delegate: self)
         rtcEngine.setChannelProfile(.channelProfile_LiveBroadcasting)
         rtcEngine.enableVideo()
         rtcEngine.enableDualStreamMode(true)
@@ -208,7 +216,7 @@ private extension LiveRoomViewController {
         
         addLocalSession()
         
-        let code = rtcEngine.joinChannel(byKey: nil, channelName: roomName, info: nil, uid: 0, joinSuccess: nil)
+        let code = rtcEngine.joinChannel(byKey: key, channelName: roomName, info: joinInfo, uid: 0, joinSuccess: nil)
         if code != 0 {
             DispatchQueue.main.async(execute: {
                 self.alert(string: "Join channel failed: \(code)")
